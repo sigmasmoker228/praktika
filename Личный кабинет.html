@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет | Моя семья - мой космос</title>
+    <style>
+        :root {
+            --primary-color: #7400a1;
+            --dark-bg: #311d1d;
+            --card-bg: #4b4b4b;
+            --border-color: #000000;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+            --hover-color: #ac2bac;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #222;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: rotate(15deg);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .logo:hover .logo-text {
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            background: #333;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #555;
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-info h2 {
+            color: var(--text-light);
+            margin: 0 0 10px;
+            font-size: 1.8rem;
+        }
+
+        .user-meta {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contest-form-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .section-title {
+            color: var(--text-light);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0e0e0'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+            padding-right: 35px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background-color: #222;
+            color: var(--text-color);
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="https://img.icons8.com/?size=100&id=68165&format=png&color=000000" alt="Логотип">
+                    <div class="logo-text">Моя семья - мой космос</div>
+                </a>
+                <nav>
+                    <a href="Главная.html">Главная</a>
+                    <a href="Конкурсы.html">Конкурсы</a>
+                    <a href="О нас.html">О нас</a>
+                    <a href="/logout">Выйти</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="profile-section">
+                <div class="profile-header">
+                    <div class="avatar">М</div>
+                    <div class="user-info">
+                        <h2>Матвей Баранов</h2>
+                        <p class="user-meta">Дата регистрации: 15.03.2022</p>
+                        <button class="btn">Редактировать профиль</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contest-form-section">
+                <h2 class="section-title">Запись на конкурс</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="contest">Конкурс</label>
+                        <select class="form-control" id="contest" name="contest" required>
+                            <option value="">-- Выберите конкурс --</option>
+                            <option value="family-art">Семейное творчество</option>
+                            <option value="family-photo">Семейное фото</option>
+                            <option value="family-video">Семейное видео</option>
+                            <option value="family-story">Семейная история</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Дата</label>
+                        <input type="date" class="form-control" id="date" name="date" value="2024-07-08" readonly required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Время (с 9:00 до 21:00)</label>
+                        <input type="time" class="form-control" id="time" name="time" min="09:00" max="21:00" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="participants">Количество человек</label>
+                        <input type="number" class="form-control" id="participants" name="participants" min="1" max="10" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Записаться на конкурс</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Моя семья - мой космос. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

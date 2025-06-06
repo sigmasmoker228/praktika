@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конкурсы | Моя семья - мой космос</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #222;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        .contests-section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .contests-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contests-table th, 
+        .contests-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        .contests-table th {
+            background-color: #333;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .contests-table tr:hover {
+            background-color: #3a3a3a;
+        }
+
+        .contest-name {
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        
+        .spots-cell {
+            width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .spots-available {
+            color: #2f05a1;
+        }
+        
+        .spots-none {
+            color: #F44336;
+        }
+
+        .time-slot {
+            font-family: monospace;
+            background-color: #333;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #e0e0e0;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer a {
+            color: #880576;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .contests-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://img.icons8.com/?size=100&id=68165&format=png&color=000000" alt="Логотип">
+                    <h1>Моя семья - мой космос</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="Конкурсы.html">Конкурсы</a></li>
+                        <li><a href="О нас.html">О нас</a></li>
+                        <li><a href="Регистрация.html">Регистрация</a></li>
+                        <li><a href="Авторизация.html">Вход</a></li>
+                        <li><a href="Личный кабинет.html">Личный кабинет</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="contests-section">
+        <div class="container">
+            <h2 class="section-title">Текущие конкурсы</h2>
+            
+            <table class="contests-table">
+                <thead>
+                    <tr>
+                        <th>Название конкурса</th>
+                        <th>Описание</th>
+                        <th>Временной слот</th>
+                        <th>Свободные места</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="contest-name">Семейное творчество</td>
+                        <td>Создайте совместную творческую работу всей семьей!</td>
+                        <td><span class="time-slot">10:00 - 12:00</span></td>
+                        <td class="spots-cell spots-available">15</td>
+                    </tr>
+                    <tr>
+                        <td class="contest-name">Семейное творчество</td>
+                        <td>Создайте совместную творческую работу всей семьей!</td>
+                        <td><span class="time-slot">14:00 - 16:00</span></td>
+                        <td class="spots-cell spots-none">0</td>
+                    </tr>
+                    <tr>
+                        <td class="contest-name">Лучшая семейная песня</td>
+                        <td>Музыкальный конкурс на самую оригинальную песню.</td>
+                        <td><span class="time-slot">11:00 - 13:00</span></td>
+                        <td class="spots-cell spots-available">3</td>
+                    </tr>
+                    <tr>
+                        <td class="contest-name">Лучшая семейная история</td>
+                        <td>Поделитесь вашей уникальной семейной историей.</td>
+                        <td><span class="time-slot">09:00 - 11:00</span></td>
+                        <td class="spots-cell spots-available">8</td>
+                    </tr>
+                    <tr>
+                        <td class="contest-name">Лучшая семейная история</td>
+                        <td>Поделитесь вашей уникальной семейной историей.</td>
+                        <td><span class="time-slot">15:00 - 17:00</span></td>
+                        <td class="spots-cell spots-none">0</td>
+                    </tr>
+                    <tr>
+                        <td class="contest-name">Семейное фото</td>
+                        <td>Конкурс на самое креативное семейное фото.</td>
+                        <td><span class="time-slot">10:30 - 12:30</span></td>
+                        <td class="spots-cell spots-none">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2023 Моя семья - мой космос. Все права защищены.</p>
+            <p>Контакты: <a href="mailto:info@familycosmos.ru">info@familycosmos.ru</a> | <a href="tel:+78001234567">8 (800) 123-45-67</a></p>
+        </div>
+    </footer>
+</body>
+</html>

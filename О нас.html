@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | Моя семья - мой космос</title>
+    <style>
+        :root {
+            --primary-color: #620080;
+            --dark-bg: #8a8989;
+            --card-bg: #504e50;
+            --border-color: #472020;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #222;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: rotate(15deg);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .logo:hover .logo-text {
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            background: #333;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .page-title {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 0 auto 50px;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .feature-image {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto 60px;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-color);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 900px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .footer {
+            background-color: #222;
+            color: var(--text-color);
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-title {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .about-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="О нас.html" class="logo">
+                    <img src="https://img.icons8.com/?size=100&id=68165&format=png&color=000000" alt="Логотип">
+                    <div class="logo-text">Моя семья - мой космос</div>
+                </a>
+                <nav>
+                    <a href="Регистрация.html">Регистрация</a>
+                    <a href="Авторизация.html">Авторизация</a>
+                    <a href="Личный кабинет.html">Личный кабинет</a>
+                    <a href="О нас.html">О нас</a>
+                    <a href="Конкурсы.html">Конкурсы</a>
+                    <a href="\">Поиск</a>
+                    <a href="#footer">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">О нашей компании</h1>
+        </div>
+
+        <div class="about-card">
+            <p class="about-text">
+                <span class="highlight">"Моя семья – мой космос"</span> - это уникальная платформа для творческих семей, где каждый член семьи, от мала до велика, может раскрыть свой потенциал и проявить таланты. Мы создаем пространство, где семейные ценности встречаются с творчеством.
+            </p>
+            <p class="about-text">
+                Наша миссия - вдохновлять семьи на совместное творчество, помогать им развиваться и находить признание. Мы верим, что семейное творчество - это особый вид искусства, который объединяет поколения и создает неповторимую атмосферу тепла и взаимопонимания.
+            </p>
+            <p class="about-text">
+                С момента основания в <span class="highlight">2018 году</span> мы провели более 50 конкурсов с участием тысяч семей со всей страны. Наши жюри - это признанные эксперты в различных областях искусства, педагогики и семейной психологии.
+            </p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Проведенных конкурсов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Участников</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Партнеров</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Лет работы</div>
+            </div>
+        </div>
+
+        <img src="https://photo-cdn2.icons8.com/gadg9KjKaipUnhuJfXpQ5chk1jy20xE7eO1fK3l0kyA/rs:fit:1606:1072/wm:1:re:0:0:0.65/wmid:moose/q:98/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTE0LzIzNjVl/NjJkLTEyNDUtNDMy/Yi1hNWQ3LWYzZTVh/MzIzNmYzNi5qcGc.jpg" alt="Счастливая семья" class="feature-image">
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="Главная.html">Главная</a></li>
+                        <li><a href="О нас.html">О нас</a></li>
+                        <li><a href="Конкурсы.html">Конкурсы</a></li>
+                        <li><a href="#footer">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Участникам</h3>
+                    <ul class="footer-links">
+                        <li><a href="Регистрация.html">Регистрация</a></li>
+                        <li><a href="Авторизация.html">Вход</a></li>
+                        <li><a href="Личный кабинет.html">Личный кабинет</a></li>
+                        <li><a href="rules.html">Правила</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Контакты</h3>
+                    <ul class="footer-links">
+                        <li>Email: info@familycosmos.ru</li>
+                        <li>Телефон: +7 (800) 123-45-67</li>
+                        <li>Адрес: г. Москва, ул. Семейная, 15</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 "Моя семья - мой космос". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
